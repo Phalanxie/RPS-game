@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            
+            let option = Math.floor(Math.random() * Math.floor(3));
+            let move;
+            if(option == 0){
+                move = "rock";
+            }
+            else if(option == 1){
+                move = "paper";
+            }
+            else if(option == 2){
+                move = "scissors";
+            }
+            return move;
+        }
+        let computerSelection = computerPlay();
+        let playerScore = 0;
+        let computerScore = 0;
+        function playRound(playerSelection, computerSelection){
+            if(computerSelection == "rock"){
+                console.log(`Computer chose: ${computerSelection}`);
+                switch(computerSelection == "rock"){
+                    case playerSelection == "rock":
+                        console.log(`It's a draw! ${playerSelection} clashes with ${computerSelection}`);
+                        break;
+                    case playerSelection == "paper":
+                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                        playerScore++;
+                        break;
+                    case playerSelection == "scissors":
+                        console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
+                        computerScore++;
+                        break;
+                }
+            }
+            else if(computerSelection == "paper"){
+                console.log(`Computer chose: ${computerSelection}`);
+                switch(computerSelection == "paper"){
+                    case playerSelection == "paper":
+                        console.log(`It's a draw! ${playerSelection} clashes with ${computerSelection}`);
+                        break;
+                    case playerSelection == "scissor":
+                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                        playerScore++;
+                        break;
+                    case playerSelection == "rock":
+                        console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
+                        computerScore++;
+                        break;
+                }
+            }
+            else if(computerSelection == "scissors"){
+                console.log(`Computer chose: ${computerSelection}`);
+                switch(computerSelection == "scissors"){
+                    case playerSelection == "scissors":
+                        console.log(`It's a draw! ${computerSelection} clashes with ${playerSelection}!`);
+                        break;
+                    case playerSelection == "paper":
+                        console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
+                        computerScore++;
+                        break;
+                    case playerSelection == "rock":
+                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                        playerScore++;
+                        break;
+                }
+            } 
+        }    
+        
+        function game(){
+            for(let gameCount = 0; gameCount < 5; gameCount++){
+            let answer = prompt("Rock, paper, or scissors?");
+            let playerSelection = answer.toLowerCase();
+            playRound(playerSelection, computerSelection);
+            computerPlay();
+            computerSelection = computerPlay();
+        };
+        console.log(`End game.`);
+        console.log(`Player score: ${playerScore} -- Computer score: ${computerScore}.`);
+        if(playerScore > computerScore){console.log("Player wins!")}
+        else if(computerScore > playerScore){console.log("Computer wins!")}
+        else if(computerScore == playerScore){console.log("Draw, try harder next time!")};
+    }
+        game();
+    </script>
+</body>
+</html>
