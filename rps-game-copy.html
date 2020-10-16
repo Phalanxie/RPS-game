@@ -6,11 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-
-    
+    <div id="container"></div>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div id="result"></div>
     <script>
+        const container = document.querySelector('#result');
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.style = 'background-color: pink; border-color: black';
+        // content.textContent = "example dom";
+        container.appendChild(content);
         function computerPlay() {
-            
             let option = Math.floor(Math.random() * Math.floor(3));
             let move;
             if(option == 0){
@@ -27,72 +35,218 @@
         let computerSelection = computerPlay();
         let playerScore = 0;
         let computerScore = 0;
-        function playRound(playerSelection, computerSelection){
-            if(computerSelection == "rock"){
-                console.log(`Computer chose: ${computerSelection}`);
-                switch(computerSelection == "rock"){
+        
+        
+        
+        function playRound(playerSelection, computerSelection)
+        {
+            const roundScore = document.createElement('p');
+            roundScore.classList.add('content');
+
+            if(computerSelection == "rock")
+            {
+                const rockChoice = document.createElement('p');
+                rockChoice.classList.add('content');
+                rockChoice.textContent = `Computer chose: ${computerSelection}`;
+                content.appendChild(rockChoice);
+
+                const broadcast = document.createElement('p');
+                broadcast.classList.add('content');
+
+                switch(computerSelection == "rock"/*is the equals necessary?*/){
                     case playerSelection == "rock":
-                        console.log(`It's a draw! ${playerSelection} clashes with ${computerSelection}`);
+                        broadcast.textContent = `It's a draw! ${playerSelection} clashes with ${computerSelection}`; 
+                        content.appendChild(broadcast);
+                        roundScore.textContent = `Computer: ${computerScore} ------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
+                        //console.log(`It's a draw! ${playerSelection} clashes with ${computerSelection}`);
+
                         break;
                     case playerSelection == "paper":
-                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                        broadcast.textContent = `You win, ${playerSelection} beats ${computerSelection}!`; 
+                        content.appendChild(broadcast);
+                        // console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
                         playerScore++;
+                        roundScore.textContent = `Computer: ${computerScore} ------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
                         break;
                     case playerSelection == "scissors":
-                        console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
+                        broadcast.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`; 
+                        content.appendChild(broadcast);
+                        // console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
                         computerScore++;
+                        roundScore.textContent = `Computer: ${computerScore} ------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
                         break;
                 }
             }
-            else if(computerSelection == "paper"){
-                console.log(`Computer chose: ${computerSelection}`);
-                switch(computerSelection == "paper"){
+            else if(computerSelection == "paper")
+            {
+                const paperChoice = document.createElement('p');
+                paperChoice.classList.add('content');
+                paperChoice.textContent = `Computer chose: ${computerSelection}`;
+                content.appendChild(paperChoice);
+
+                const broadcast = document.createElement('p');
+                broadcast.classList.add('content')
+                //console.log(`Computer chose: ${computerSelection}`);
+                switch(computerSelection == "paper")
+                {
                     case playerSelection == "paper":
-                        console.log(`It's a draw! ${playerSelection} clashes with ${computerSelection}`);
+                        broadcast.textContent = `It's a draw! ${playerSelection} clashes with ${computerSelection}`;
+                        content.appendChild(broadcast);
+                        //console.log(`It's a draw! ${playerSelection} clashes with ${computerSelection}`);
                         break;
                     case playerSelection == "scissor":
-                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                        broadcast.textContent = `You win, ${playerSelection} beats ${computerSelection}!`;
+                        content.appendChild(broadcast);
+                        // console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
                         playerScore++;
+                        roundScore.textContent = `Computer: ${computerScore}------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
                         break;
                     case playerSelection == "rock":
-                        console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
+                        broadcast.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`;
+                        content.appendChild(broadcast);
+                        // console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
                         computerScore++;
+                        roundScore.textContent = `Computer: ${computerScore}------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
                         break;
                 }
             }
-            else if(computerSelection == "scissors"){
-                console.log(`Computer chose: ${computerSelection}`);
-                switch(computerSelection == "scissors"){
+            else if(computerSelection == "scissors")
+            {
+
+                const paperChoice = document.createElement('p');
+                paperChoice.classList.add('content');
+                paperChoice.textContent = `Computer chose: ${computerSelection}`;
+                content.appendChild(paperChoice);
+
+                const broadcast = document.createElement('p');
+                broadcast.classList.add('content')
+                // console.log(`Computer chose: ${computerSelection}`);
+                switch(computerSelection == "scissors")
+                {
                     case playerSelection == "scissors":
-                        console.log(`It's a draw! ${computerSelection} clashes with ${playerSelection}!`);
+                        broadcast.textContent = `It's a draw! ${computerSelection} clashes with ${playerSelection}!`;
+                        content.appendChild(broadcast);
+                        roundScore.textContent = `Computer: ${computerScore}------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
+                        // console.log(`It's a draw! ${computerSelection} clashes with ${playerSelection}!`);
                         break;
                     case playerSelection == "paper":
-                        console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
+                        broadcast.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`;
+                        content.appendChild(broadcast);
+                        // console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
                         computerScore++;
+                        roundScore.textContent = `Computer: ${computerScore}------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
                         break;
                     case playerSelection == "rock":
-                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                        broadcast.textContent = `You win, ${playerSelection} beats ${computerSelection}!`;
+                        content.appendChild(broadcast);
+                        // console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
                         playerScore++;
+                        roundScore.textContent = `Computer: ${computerScore}------ You: ${playerScore}`;
+                        content.appendChild(roundScore);
                         break;
                 }
             } 
         }    
+        function gameEnd()
+        {
+            const result = document.createElement('div');
+            // result.classList.add('content');
+            result.classList.add('result');
+            if(playerScore > computerScore)
+            {
+                result.textContent = "The game is over. You win!";
+                container.appendChild(result);
+            }
+            else if(computerScore > playerScore)
+            {
+                result.textContent = "The game is over. The computer wins!";
+                container.appendChild(result);
+
+            }else{}
+            
+
+        }
         
-        function game(){
-            for(let gameCount = 0; gameCount < 5; gameCount++){
-            let answer = prompt("Rock, paper, or scissors?");
-            let playerSelection = answer.toLowerCase();
-            playRound(playerSelection, computerSelection);
+        const result = document.querySelector('#result');
+        const rock = document.querySelector('#rock');
+        const paper = document.querySelector('#paper');
+        const scissors = document.querySelector('#scissors');
+        
+        rock.addEventListener
+            (
+                'click', () =>
+                {
+                    if(playerScore < 5 && computerScore < 5)
+                    {
+                        playerSelection = "rock";
+                        computerSelection = computerPlay();
+                        playRound(playerSelection, computerSelection);
+
+                    }
+                    else
+                    {
+                        gameEnd();
+                    }
+                    
+                }        
+            );
+        paper.addEventListener
+            (
+                'click', () =>
+                {
+                    if(playerScore < 5 && computerScore < 5)
+                    {
+                        playerSelection = "paper";
+                        computerSelection = computerPlay();
+                        playRound(playerSelection, computerSelection);
+                    }
+                    else
+                    {
+                        gameEnd();
+                    }
+                    
+                }        
+            );
+        scissors.addEventListener
+            (
+                'click', () =>
+                {
+                    if(playerScore < 5 && computerScore < 5)
+                    {
+                        playerSelection = "scissors";
+                        computerSelection = computerPlay();
+                        playRound(playerSelection, computerSelection);
+                    }
+                    else
+                    {
+                        gameEnd();
+                    }
+                    
+                }        
+            );
+        
+            
+        /*function game(){
+            
+            let answer;
+            //let playerSelection = answer;
+            //playRound(playerSelection, computerSelection);
             computerPlay();
             computerSelection = computerPlay();
-        };
         console.log(`End game.`);
         console.log(`Player score: ${playerScore} -- Computer score: ${computerScore}.`);
         if(playerScore > computerScore){console.log("Player wins!")}
         else if(computerScore > playerScore){console.log("Computer wins!")}
         else if(computerScore == playerScore){console.log("Draw, try harder next time!")};
     }
-        game();
+        game();*/
     </script>
 </body>
 </html>
