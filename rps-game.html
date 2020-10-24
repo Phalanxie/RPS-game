@@ -35,7 +35,7 @@
         }
         let computerSelection = computerPlay();
         let playerScore = 0;
-        let computerScore = 0;
+        let computerScore = 0;//some comment
         
         
         
@@ -57,6 +57,7 @@
                 switch(computerSelection == "rock"/*is the equals necessary?*/){
                     case playerSelection == "rock":
                         broadcast.textContent = `It's a draw! ${playerSelection} clashes with ${computerSelection}`; 
+                        //broadcast.style = "background-color: red";
                         content.appendChild(broadcast);
                         roundScore.textContent = `Computer: ${computerScore} ------ You: ${playerScore}`;
                         content.appendChild(roundScore);
@@ -72,6 +73,7 @@
                         content.appendChild(roundScore);
                         break;
                     case playerSelection == "scissors":
+                        broadcast.style = "background-color: red";
                         broadcast.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`; 
                         content.appendChild(broadcast);
                         // console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
@@ -107,6 +109,7 @@
                         content.appendChild(roundScore);
                         break;
                     case playerSelection == "rock":
+                        broadcast.style = "background-color: red";
                         broadcast.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`;
                         content.appendChild(broadcast);
                         // console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
@@ -137,6 +140,9 @@
                         // console.log(`It's a draw! ${computerSelection} clashes with ${playerSelection}!`);
                         break;
                     case playerSelection == "paper":
+                        broadcast.style = "background-color: red";
+                        roundScore.style = "background-color: red";
+                        
                         broadcast.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`;
                         content.appendChild(broadcast);
                         // console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
